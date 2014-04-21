@@ -1,7 +1,23 @@
 library(foreign)
 myData <- read.csv("simdata.csv")
+myData$lambda <- (b*(myData$y+myData$d)/(1+myData$z))-(c+k)
+myData$delta <- (myData$y/(1+myData$z))
 
+require(ggplot2)
+lambda.plot <- qplot(myData$lambda, geom="density") + 
+  xlab("Negative Campaigning Utility") + 
+  ylab("Density for RCV Elections") +
+  theme_bw()
 
+lambda.plot
+
+require(ggplot2)
+delta.plot <- qplot(myData$delta, geom="density") + 
+  xlab("Negative Campaigning Utility") + 
+  ylab("Density for RCV Elections") +
+  theme_bw()
+
+delta.plot
 
 
 Bayesian Linear Regression in Stan

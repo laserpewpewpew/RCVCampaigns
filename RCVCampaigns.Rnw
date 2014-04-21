@@ -1,0 +1,49 @@
+\documentclass{article}
+
+\author{Kellen J. Gracey \\
+        Department of Political Science \\
+        University of Iowa}
+\date{\today}
+\title{Negative Campaigning in RCV and non-RCV Electoral Systems}
+
+
+\usepackage{authordate1-4}
+\usepackage{amsmath}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{dcolumn}
+\usepackage{fullpage}
+\usepackage{floatrow}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+
+\end{abstract}
+
+
+\section*{Introduction}
+
+3 paragraphs
+
+\section*{Lit Review}
+
+Less than 5 pages (way less...)
+
+\section*{Theory}
+
+
+
+\section*{The Model}
+
+Assume the decision to 
+
+\section*{Conclusion}
+
+
+\biblography{bibliography}
+\end{document}
