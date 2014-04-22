@@ -44,6 +44,29 @@ Less than 5 pages (way less...)
 
 The game has three stages and as many iterations as there are weeks in the campaign cycle, beginning when the first candidacy is announced.  Campaigns determine the utility of going negative in a dyadic manner, comparing information from each of the other other opposing campaigns.  Each week each campaign collects three pieces of information regarding each dyadic pairing: (1) relative ranking in most recent polling numbers; (2) ideological distance in terms of DW-NOMINATE scores; and (3) the number of negative tactics already used by the campaign in this election cycle.
 
+\subsection*{Exploring the Model: A Game-Theoretic Approach}
+
+\begin{tabular}
+\centering
+\ttabbox
+{\caption{Area of Utility Curve Greater Than Zero (\% Positive Utils)}
+\label{table1}}
+\begin{table}{l | c c}
+Election Size &\underline{$r = 1$} & \underline{r = 0} \\
+(\# Candidates) & (RCV) & (non-RCV) \\
+\hline
+2 & .52 & .51 \\
+3 & .47 & .51 \\
+4 & .46 & .51 \\
+5 & .46 & .51 \\
+6 & .45 & .60 \\
+7 & .45 & .51 \\
+8 & .45 & .51 \\
+9 &
+10 &
+\end{table}
+\end{tabula}
+
 \section*{Conclusion}
 
 

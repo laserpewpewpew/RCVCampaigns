@@ -256,7 +256,42 @@ library(doBy)
 lambdaavgs.myData8 <- summaryBy(lambda ~ d, data=myData8, FUN=c(mean), na.rm=T)
 
 
+########################
+# 8 Candidate Election #
+########################
 
+library(foreign)
+myData9 <- read.csv("simdata9cands.csv")
+myData9$lambda <- ((myData9$b*(myData9$y+myData9$d)/(1+myData9$z))-(myData9$c*myData9$k))
+myData9$delta <- ((myData9$b*((myData9$y)/(1+myData9$z)))-(myData9$c*myData9$k))
+
+myData9$lambdapos[myData9$lambda>0] <- 1
+myData9$lambdapos[myData9$lambda<=0] <- 0
+
+myData9$deltapos[myData9$delta>0] <- 1
+myData9$deltapos[myData9$delta<=0] <- 0
+summary(myData9$lambdapos)
+summary(myData9$deltapos)
+# These summaries show us a roughly 15% reduction in positive utility possibilities
+
+require(ggplot2)
+lambda.myData9 <- qplot(myData9$lambda, geom="density") + 
+  xlab("Negative Campaigning Utility") + 
+  ylab("Density for RCV Elections - 9 Candidate Race") +
+  theme_bw()
+
+lambda.myData9
+
+require(ggplot2)
+delta.myData9 <- qplot(myData9$delta, geom="density") + 
+  xlab("Negative Campaigning Utility") + 
+  ylab("Density for non-RCV Elections - 9 Candidate Race") +
+  theme_bw()
+
+delta.myData9
+
+library(doBy)
+lambdaavgs.myData9 <- summaryBy(lambda ~ d, data=myData9, FUN=c(mean), na.rm=T)
 
 
 ######################################
