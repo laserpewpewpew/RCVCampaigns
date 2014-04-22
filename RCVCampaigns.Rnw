@@ -28,7 +28,9 @@
 
 \section*{Introduction}
 
-3 paragraphs
+The purpose of this paper is to present a game-theoretic model of campaign negativity.  This research is motivated, in part, by recent experimental research focused on a decision-theoretic model of campaign negativity.  The model presented here is not intended to replace any previous understanding of campaign negativity, but rather to supplement it.  Models looking at the decision process campaigns use to decide whether or not to go negative largely focus on one specific electoral context; namely, single-member district first past the post style elections.  
+
+This paper is born from a line of research into ranked-choice voting in American municipalities.  Over the course of several months in 2013 and 2014 data were collected from candidates in recent (2012 \& 2013) municipal mayoral and city council elections.  Sample selection was done in a way that matched RCV cities with non-RCV cities to provide a basis for comparison across electoral system type.  Similar data were collected from voters as well.  
 
 \section*{Lit Review}
 
@@ -40,7 +42,7 @@ Less than 5 pages (way less...)
 
 \section*{The Model}
 
-Assume the decision to 
+The game has three stages and as many iterations as there are weeks in the campaign cycle, beginning when the first candidacy is announced.  Campaigns determine the utility of going negative in a dyadic manner, comparing information from each of the other other opposing campaigns.  Each week each campaign collects three pieces of information regarding each dyadic pairing: (1) relative ranking in most recent polling numbers; (2) ideological distance in terms of DW-NOMINATE scores; and (3) the number of negative tactics already used by the campaign in this election cycle.
 
 \section*{Conclusion}
 
