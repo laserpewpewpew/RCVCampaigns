@@ -1,7 +1,17 @@
+########################
+# 6 Candidate Election #
+########################
+
 library(foreign)
 myData <- read.csv("simdata.csv")
-myData$lambda <- (b*(myData$y+myData$d)/(1+myData$z))-(c+k)
-myData$delta <- (myData$y/(1+myData$z))
+myData$lambda <- ((myData$b*(myData$y+myData$d)/(1+myData$z))-(myData$c*myData$k))
+myData$delta <- ((myData$b*((myData$y)/(1+myData$z)))-(myData$c*myData$k))
+
+myData$lambdapos[myData$lambda>0] <- 1
+myData$lambdapos[myData$lambda<=0] <- 0
+
+myData$deltapos[myData$delta>0] <- 1
+myData$deltapos[myData$delta<=0] <- 0
 
 require(ggplot2)
 lambda.plot <- qplot(myData$lambda, geom="density") + 
@@ -14,13 +24,66 @@ lambda.plot
 require(ggplot2)
 delta.plot <- qplot(myData$delta, geom="density") + 
   xlab("Negative Campaigning Utility") + 
-  ylab("Density for RCV Elections") +
+  ylab("Density for non-RCV Elections") +
   theme_bw()
 
 delta.plot
 
+library(doBy)
+lambdaavgs <- summaryBy(lambda ~ d, data=myData, FUN=c(mean), na.rm=T)
 
-Bayesian Linear Regression in Stan
+require(ggplot2)
+lambdaavgs.plot <- qplot(lambdaavgs$lambda.mean, geom="density") + 
+  xlab("Negative Campaigning Utility") + 
+  ylab("Density for non-RCV Elections") +
+  theme_bw()
+
+lambdaavgs.plot
+
+########################
+# 3 Candidate Election #
+########################
+myData2 <- read.csv("simdata3cands.csv")
+myData2$lambda <- ((myData2$b*(myData2$y+myData2$d)/(1+myData2$z))-(myData2$c*myData2$k))
+myData2$delta <- ((myData2$b*((myData2$y)/(1+myData2$z)))-(myData2$c*myData2$k))
+
+myData2$lambdapos[myData2$lambda>0] <- 1
+myData2$lambdapos[myData2$lambda<=0] <- 0
+
+myData2$deltapos[myData2$delta>0] <- 1
+myData2$deltapos[myData2$delta<=0] <- 0
+
+require(ggplot2)
+lambda.plot2 <- qplot(myData2$lambda, geom="density") + 
+  xlab("Negative Campaigning Utility") + 
+  ylab("Density for RCV Elections") +
+  theme_bw()
+
+lambda.plot2
+
+require(ggplot2)
+delta.plot2 <- qplot(myData2$delta, geom="density") + 
+  xlab("Negative Campaigning Utility") + 
+  ylab("Density for non-RCV Elections") +
+  theme_bw()
+
+delta.plot2
+
+library(doBy)
+lambdaavgs <- summaryBy(lambda ~ d, data=myData2, FUN=c(mean), na.rm=T)
+
+require(ggplot2)
+lambdaavgs.plot2 <- qplot(lambdaavgs2$lambda.mean, geom="density") + 
+  xlab("Negative Campaigning Utility") + 
+  ylab("Density for non-RCV Elections") +
+  theme_bw()
+
+lambdaavgs.plot2
+
+
+
+#####################################
+# Bayesian Linear Regression in Stan
 # Install by following the directions at <https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started>
 require(rstan)
 
