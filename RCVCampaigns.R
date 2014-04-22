@@ -12,6 +12,9 @@ myData$lambdapos[myData$lambda<=0] <- 0
 
 myData$deltapos[myData$delta>0] <- 1
 myData$deltapos[myData$delta<=0] <- 0
+summary(myData$lambdapos)
+summary(myData$deltapos)
+# These summaries show us a roughly 15% reduction in positive utilitity possibilities
 
 require(ggplot2)
 lambda.plot <- qplot(myData$lambda, geom="density") + 
@@ -43,6 +46,7 @@ lambdaavgs.plot
 ########################
 # 3 Candidate Election #
 ########################
+library(foreign)
 myData2 <- read.csv("simdata3cands.csv")
 myData2$lambda <- ((myData2$b*(myData2$y+myData2$d)/(1+myData2$z))-(myData2$c*myData2$k))
 myData2$delta <- ((myData2$b*((myData2$y)/(1+myData2$z)))-(myData2$c*myData2$k))
@@ -52,6 +56,9 @@ myData2$lambdapos[myData2$lambda<=0] <- 0
 
 myData2$deltapos[myData2$delta>0] <- 1
 myData2$deltapos[myData2$delta<=0] <- 0
+summary(myData2$lambdapos)
+summary(myData2$deltapos)
+# These summaries show a 3% reduction in positive utility possibilities
 
 require(ggplot2)
 lambda.plot2 <- qplot(myData2$lambda, geom="density") + 
@@ -70,7 +77,7 @@ delta.plot2 <- qplot(myData2$delta, geom="density") +
 delta.plot2
 
 library(doBy)
-lambdaavgs <- summaryBy(lambda ~ d, data=myData2, FUN=c(mean), na.rm=T)
+lambdaavgs2 <- summaryBy(lambda ~ d, data=myData2, FUN=c(mean), na.rm=T)
 
 require(ggplot2)
 lambdaavgs.plot2 <- qplot(lambdaavgs2$lambda.mean, geom="density") + 
@@ -80,6 +87,97 @@ lambdaavgs.plot2 <- qplot(lambdaavgs2$lambda.mean, geom="density") +
 
 lambdaavgs.plot2
 
+
+
+########################
+# 4 Candidate Election #
+########################
+library(foreign)
+myData3 <- read.csv("simdata4cands.csv")
+myData3$lambda <- ((myData3$b*(myData3$y+myData3$d)/(1+myData3$z))-(myData3$c*myData3$k))
+myData3$delta <- ((myData3$b*((myData3$y)/(1+myData3$z)))-(myData3$c*myData3$k))
+
+myData3$lambdapos[myData3$lambda>0] <- 1
+myData3$lambdapos[myData3$lambda<=0] <- 0
+
+myData3$deltapos[myData3$delta>0] <- 1
+myData3$deltapos[myData3$delta<=0] <- 0
+summary(myData3$lambdapos)
+summary(myData3$deltapos)
+# These summaries show a 3% reduction in positive utility possibilities
+
+require(ggplot2)
+lambda.plot3 <- qplot(myData3$lambda, geom="density") + 
+  xlab("Negative Campaigning Utility") + 
+  ylab("Density for RCV Elections") +
+  theme_bw()
+
+lambda.plot3
+
+require(ggplot2)
+delta.plot3 <- qplot(myData3$delta, geom="density") + 
+  xlab("Negative Campaigning Utility") + 
+  ylab("Density for non-RCV Elections") +
+  theme_bw()
+
+delta.plot3
+
+library(doBy)
+lambdaavgs3 <- summaryBy(lambda ~ d, data=myData3, FUN=c(mean), na.rm=T)
+
+require(ggplot2)
+lambdaavgs.plot3 <- qplot(lambdaavgs3$lambda.mean, geom="density") + 
+  xlab("Negative Campaigning Utility") + 
+  ylab("Density for non-RCV Elections") +
+  theme_bw()
+
+lambdaavgs.plot3
+
+
+
+########################
+# 5 Candidate Election #
+########################
+library(foreign)
+myData4 <- read.csv("simdata5cands.csv")
+myData4$lambda <- ((myData4$b*(myData4$y+myData4$d)/(1+myData4$z))-(myData4$c*myData4$k))
+myData4$delta <- ((myData4$b*((myData4$y)/(1+myData4$z)))-(myData4$c*myData4$k))
+
+myData4$lambdapos[myData4$lambda>0] <- 1
+myData4$lambdapos[myData4$lambda<=0] <- 0
+
+myData4$deltapos[myData4$delta>0] <- 1
+myData4$deltapos[myData4$delta<=0] <- 0
+summary(myData4$lambdapos)
+summary(myData4$deltapos)
+# These summaries show a 3% reduction in positive utility possibilities
+
+require(ggplot2)
+lambda.plot4 <- qplot(myData4$lambda, geom="density") + 
+  xlab("Negative Campaigning Utility") + 
+  ylab("Density for RCV Elections") +
+  theme_bw()
+
+lambda.plot4
+
+require(ggplot2)
+delta.plot4 <- qplot(myData4$delta, geom="density") + 
+  xlab("Negative Campaigning Utility") + 
+  ylab("Density for non-RCV Elections") +
+  theme_bw()
+
+delta.plot4
+
+library(doBy)
+lambdaavgs4 <- summaryBy(lambda ~ d, data=myData4, FUN=c(mean), na.rm=T)
+
+require(ggplot2)
+lambdaavgs.plot4 <- qplot(lambdaavgs4$lambda.mean, geom="density") + 
+  xlab("Negative Campaigning Utility") + 
+  ylab("Density for non-RCV Elections") +
+  theme_bw()
+
+lambdaavgs.plot4
 
 
 #####################################
