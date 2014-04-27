@@ -1,0 +1,40 @@
+\documentclass{article}
+
+\author{Kellen J. Gracey \\
+        Department of Political Science \\
+        University of Iowa}
+\date{\today}
+\title{Negative Campaigning in RCV and non-RCV Electoral Systems: Literature Review}
+
+
+\usepackage{authordate1-4}
+\usepackage{amsmath}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{dcolumn}
+\usepackage{fullpage}
+\usepackage{floatrow}
+
+
+\begin{document}
+\maketitle
+
+
+\section*{Introduction}
+Borda count election theory / game theory (theoretical foundations for d term)
+Instead of assigning, look for ways the model generates them
+
+Mattes 2012 literature review:
+
+"As Harrington and Hess have explained, understanding how and why candidates choose to allocate recources toward different campaign themes is necessary to explain why 'candidates in the same electoral contest might pursue very different campaign strategies" (1995, 211)
+
+Mattes continues this line of research, using experimental methods to determine why candidates choose positive or negative campaigning strategies.  Here, I build on these findings in studying the way electoral systems influence the decision making process candidates use to decide whether to use positive or negative campaigning tactics.  
+
+"The decision-making ability of the voter has usually not been a focus of previous formal models 
+
+Implicit in all the previous studies of campaign behavior is the assumption that the election is being held in a first-past-the-post system.  In previous models voters are not allowed to express preferences for more than one candidate on a ballot come Election Day.  If voters \textit{were} given the ability to express preferences for more than one candidate how would the decision-making calculus of campaigns change? 
+
+
+\end{document}
