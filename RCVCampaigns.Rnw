@@ -25,7 +25,7 @@
 
 \end{abstract}
 
-
+\doublespacing
 \section*{Introduction}
 
 The purpose of this paper is to present a game-theoretic model of campaign negativity.  This research is motivated, in part, by recent experimental research focused on a decision-theoretic model of campaign negativity.  The model presented here is not intended to replace any previous understanding of campaign negativity, but rather to supplement it.  Models looking at the decision process campaigns use to decide whether or not to go negative largely focus on one specific electoral context; namely, single-member district first past the post style elections.  
@@ -34,7 +34,7 @@ This paper is born from a line of research into ranked-choice voting in American
 
 \section*{Lit Review}
 
-Less than 5 pages (way less...)
+Game-theoretic approaches to understanding campaign negativity 
 
 \section*{Theory}
 
@@ -42,17 +42,30 @@ Less than 5 pages (way less...)
 
 \section*{The Model}
 
-The game has three stages and as many iterations as there are weeks in the campaign cycle, beginning when the first candidacy is announced.  Campaigns determine the utility of going negative in a dyadic manner, comparing information from each of the other other opposing campaigns.  Each week each campaign collects three pieces of information regarding each dyadic pairing: (1) relative ranking in most recent polling numbers; (2) ideological distance in terms of DW-NOMINATE scores; and (3) the number of negative tactics already used by the campaign in this election cycle.
+The decision process has three stages and as many iterations as there are weeks in the campaign cycle, beginning when the first candidacy is announced.  Campaigns determine the utility of going negative in a dyadic manner, comparing information about each of the other opposing campaigns.  Each week each campaign collects three pieces of information regarding each dyadic pairing: (1) relative ranking in most recent polling numbers, denoted in the model below by $\delta$; (2) ideological distance in terms of DW-NOMINATE scores, represented by $y$ below; and (3) the number of negative tactics already used by the campaign in this election cycle, $\rho$ in the model.  These three variables are the primary strategic elements in the campaign decision-making process.  
 
-\subsection*{Exploring the Model: A Game-Theoretic Approach}
+A note should be made regarding the nature of the $\delta$ term.  Campaigns determine the value of $\delta$ by subtracting the poll rankings of each opponent in the dyads, which can be expressed as $x_i - x_j$, where $i$ is any given campaign and $j$ is any given opponent.  A candidate in first place considering whether or not to go negative against a candidate in sixth place would mean $\delta = 1 - 6 = -5$.  The sign direction accounts for the relative positioning between each campaign, that is which one is ahead of the other.  The magnitude accounts for how far away the two campaigns are from each other in the polling numbers.  Finally, the location $\delta$ holds in the numerator of the utility function presented below penalizes the better-performing candidates for going negative on candidates at the bottom of the race.  This is essentially doing all the work in the model, the variable most important in understanding why negativity is more prevalent in plurality versus RCV elections.
 
-\begin{tabular}
-\centering
-\ttabbox
-{\caption{Area of Utility Curve Greater Than Zero (\% Positive Utils)}
-\label{table1}}
-\begin{table}{l | c c}
-Election Size &\underline{$r = 1$} & \underline{r = 0} \\
+
+\subsection*{Exploring the Model: A Maximization Problem}
+
+The utility of candidate $\ell$ going negative against any other given candidate can thus be expressed in the form of equation~\ref{E:1} below.  
+
+$$ U(\ell_N) = b\left( \frac{y+r\delta}{1+\rho}\right) - c \kappa + \epsilon $$
+
+Once campaigns collect the appropriate information they then calculate whether or not they can expect to receive positive utility for using a negative tactic.  This presents a maximization problem for the campaign.  As they seek to maximize vote share, campaigns choose between going negative or not going negative simply by whether or not the utility function calculation is greater than zero.  If it is, the campaign can expect to receive positive utility from going negative, making this the best decision in the given the scenario.  If the utility function caluculation results in a negative value, campaigns realize they have more to lose than to gain by going negative and choose not to.
+
+\subsection*{Generating Predictions}
+
+The model generates a series of predictions as constructed, which I explore more in-depth in the following section.
+
+
+\begin{table}
+\caption{Area of Utility Curve Greater Than Zero (\% Positive Utils)}
+\label{table1}
+
+\begin{tabular}{c | c c}
+Election Size & \underline{$r = 1$} & \underline{$r = 0$} \\
 (\# Candidates) & (RCV) & (non-RCV) \\
 \hline
 2 & .52 & .51 \\
@@ -60,15 +73,17 @@ Election Size &\underline{$r = 1$} & \underline{r = 0} \\
 4 & .46 & .51 \\
 5 & .46 & .51 \\
 6 & .45 & .60 \\
-7 & .45 & .51 \\
-8 & .45 & .51 \\
-9 &
-10 &
+\end{tabular}
+
 \end{table}
-\end{tabula}
+
 
 \section*{Conclusion}
 
+This paper presented a formal model of the decision-making process campaigns face when choosing whether or not to go negative.  The simplicity of the model is one of its strengths and can offer a starting point for future research to build on.  Empirically testing this model requires data currently unavailable.  However, we can see that in survey-experiment data collected in RCV and non-RCV cities patterns emerge that the model would predict.  This indicates that future empirical testing could prove fruitful and open up the door to better understand campaign strategy and decision-making.  Hopefully too, this paper can offer insight valuable to campaign managers and candidates alike.
+
 
 \biblography{bibliography}
+
+
 \end{document}
