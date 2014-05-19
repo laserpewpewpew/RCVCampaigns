@@ -4,8 +4,7 @@
         Department of Political Science \\
         University of Iowa}
 \date{\today}
-\title{Negative Campaigning in RCV and non-RCV Electoral Systems}
-
+\title{Benefits for Being Bad? Modeling Campaign Negativity}
 
 \usepackage{authordate1-4}
 \usepackage{amsmath}
@@ -16,74 +15,228 @@
 \usepackage{dcolumn}
 \usepackage{fullpage}
 \usepackage{floatrow}
+\usepackage{subcaption}
 
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-
+This paper presents a model of campaign negativity that accounts for differences in electoral system types.  Previous research looking into the decision-making process of campaigns regarding the choice to go negative against another candidate, within the American context, has largely been limited to single member district, winner-take-all style elections.  We argue that the incentives for going negative are present in plurality election types but not in preferential election types, which accounts for the reduced negativity and improved civility in campaigning witnessed in preferential compared to plurality elections.  Campaigns operate in a very rational manner, weighing costs and benefits in everything they do; lower levels of negativity in plurality elections are directly tied to the fact that voters are given the ability to rank second and third place preferences when casting a ballot on Election Day.
 \end{abstract}
+\newpage
 
 \doublespacing
-\section*{Introduction}
+\section*{~}
+\begin{center}
+``Negative advertising is the crack cocaine of politics." \\
+\tiny{Sen. Tom Daschle}\footnote{Adapted from the opening line of John Geer's \textit{In Defense of Negativity: Attack Ads in Presidential Campaigns} (2008).}.
+\end{center}
 
-The purpose of this paper is to present a game-theoretic model of campaign negativity.  This research is motivated, in part, by recent experimental research focused on a decision-theoretic model of campaign negativity.  The model presented here is not intended to replace any previous understanding of campaign negativity, but rather to supplement it.  Models looking at the decision process campaigns use to decide whether or not to go negative largely focus on one specific electoral context; namely, single-member district first past the post style elections.  
+\normalsize
+Throughout an election cycle campaigns must make informed decisions about how to spread their message and present their candidate.  One of the more difficult decisions regards the choice of messaging negativity.  Campaigns must choose when and against whom to go negative.  Altering their message to attack another candidate has potential consequences and benefits to be considered.  The general consensus in the research community, as discussed below, is that consequences are relatively nil.  That is, campaigns can freely attack one another at will without any serious fear of repercussions in voter behavior.  However, all the research up to this point has considered costs and benefits only in limited contexts.
 
-This paper is born from a line of research into ranked-choice voting in American municipalities.  Over the course of several months in 2013 and 2014 data were collected from candidates in recent (2012 \& 2013) municipal mayoral and city council elections.  Sample selection was done in a way that matched RCV cities with non-RCV cities to provide a basis for comparison across electoral system type.  Similar data were collected from voters as well.  
+We present a  model of campaign negativity that accounts for variance in electoral system.  Changes in electoral rules influence the way campaigns behave.  The model presented here is intended to supplement previous understandings of campaign decision-making.  Previous models largely focus on one specific electoral context: single-member district, first-past-the-post style elections.  We argue here that changing the electoral context changes the way campaigns interact with one another throughout the election cycle.
 
-\section*{Lit Review}
+This paper is born from a line of research into ranked-choice voting in American municipalities.  Over the course of several months in 2013 and 2014 data were collected from candidates in recent (2012 \& 2013) municipal mayoral and city council elections.  Multiple matched methods were used that matched RCV cities with non-RCV cities to provide a basis for comparison across electoral system type.  Respondents were pooled and an indicator variable was created, isolating the effect of electoral system type.  Similar data were collected from likely voters as well, via telephone and exit poll surveys.  Much of the attention drawn to RCV elections is based on the hope they will introduce civility and reduce polarization in politics.  Learning how this mechanism works, if it works at all, is helpful for policymakers and scholars alike.
 
-Game-theoretic approaches to understanding campaign negativity 
+The paper begins with a brief discussion of how campaign behavior differs between RCV and non-RCV elections.  We then present a model for understanding the calculus campaigns use to determine whether or not to go negative, as well as why we see differences between election type.  The paper concludes with general discussion of the usefulness of this model.
 
-\section*{Theory}
+\subsection*{Electoral Systems and their Effect on Campaigns and Elections}
 
+While the literature on campaign negativity has enjoyed somewhat of a renaissance of late, research specifically connecting electoral rules to campaign behavior is sparse and lacking, to say the least.  A particularly informative study for the research question posed in this paper focused on the relationship between voter informational updating and campaign strategies~\cite{Mattes:2012}.  Mattes finds that voters react to campaign messaging in a rather naive way and typically fail to draw conclusions about candidates from what is missing in their message.  That is, a campaign is capable of framing the debate and leading discourse in ways amenable to the candidate.  This lends credence to the notion that going negative is not always bad if going negative draws attention to characteristics of your opponent that voters would otherwise be unaware of.  Mattes provides a reason why campaigns should thus build a strategy that effectively balances positive and negative campaigning.  This study, and others like it~\cite{Freedman:1999,Geer:2003,Stevens:2008}, focuses on the dynamic relationship between campaign and voter.   These studies may  illustrate \textit{why} campaigns might choose to go negative, or discuss what potential repercussions campaigns can expect - the consensus seems to be none.  Lacking in this line of research, however, is an explanation of \textit{how} - which pieces of information do campaigns take into consideration when making this decision?  Are they primarily concerned with the potential vote share gain or loss they might realize once they shift their message to a negative attack?
 
+A general consensus among the research community is that negative campaigning has little to no effect on voter turnout.  While the debate continues, demobilization theorists argue that an abundance of negativity turns people away from the political arena.  On the other hand, some scholars argue negative campaigning not only does \textit{not} demobilize people, it can actually be \textit{beneficial} for a healthy democracy~\cite{Geer:2008}.  
 
-\section*{The Model}
+Much of the research looking at the effect of electoral rules lacks in the area of interest, as well.  Recent research has been successful in linking electoral rules to voter turnout and mobilization~\cite{Burden:2014}.  Resources available to candidates and informational shortcuts available to voters change drastically depending on whether or not the election is partisan or not~\cite{Schaffner:2001}.  One study does look at how variance in primary type influences campaign behavior, but is limited in its focus on SMDs only~\cite{Carey:1995}.
 
-The decision process has three stages and as many iterations as there are weeks in the campaign cycle, beginning when the first candidacy is announced.  Campaigns determine the utility of going negative in a dyadic manner, comparing information about each of the other opposing campaigns.  Each week each campaign collects three pieces of information regarding each dyadic pairing: (1) relative ranking in most recent polling numbers, denoted in the model below by $\delta$; (2) ideological distance in terms of DW-NOMINATE scores, represented by $y$ below; and (3) the number of negative tactics already used by the campaign in this election cycle, $\rho$ in the model.  These three variables are the primary strategic elements in the campaign decision-making process.  
+Research into campaign negativity has entirely overlooked the possibility of strategic decision-making on behalf of campaigns in non-single member districts. RCV (and other similar preferential voting systems) alters the incentives candidates have for going negative.  Typical SMD first-past-the-post systems operate in a zero-sum environment: campaigns view a vote for another candidate as loss for themselves.  Going negative highlights differences, creates clear choices for voters.  Campaigns have an incentive to exaggerate and attack their opponents in these types of systems~\cite{Donovan:2014}; RCV and other preferential systems (such as Single Transferable Vote) remove these incentives~\cite{Bowler:2000}.  Campaigns in RCV systems must take into consideration the second and third preference voters can indicate on the ballot.  
 
-A note should be made regarding the nature of the $\delta$ term.  Campaigns determine the value of $\delta$ by subtracting the poll rankings of each opponent in the dyads, which can be expressed as $x_i - x_j$, where $i$ is any given campaign and $j$ is any given opponent.  A candidate in first place considering whether or not to go negative against a candidate in sixth place would mean $\delta = 1 - 6 = -5$.  The sign direction accounts for the relative positioning between each campaign, that is which one is ahead of the other.  The magnitude accounts for how far away the two campaigns are from each other in the polling numbers.  Finally, the location $\delta$ holds in the numerator of the utility function presented below penalizes the better-performing candidates for going negative on candidates at the bottom of the race.  This is essentially doing all the work in the model, the variable most important in understanding why negativity is more prevalent in plurality versus RCV elections.
+When campaigns are embattled in a race between two candidates so common in single member districts, all that matters is activating your base and attempting to convince swing voters.  Other factors determining negative campaigning might include monetary considerations, or exogenous factors specific to a certain campaign event (e.g., a candidate gaffe, national party behavior, or revelations from an opponents past).  Allowing voters to indicate more than one preference encourages bargaining, reciprocity, and accommodation among opposing political elites~\cite{Horowitz:1985,Horowitz:1991}.  Changing the election rules to preferential voting alters the environment from a zero-sum to a positive-sum context, even improving cooperation among elites in terms of policy content and strategy~\cite{Reilly:1997,Reilly:2001,Reilly:2004}. Campaigns in RCV systems cannot rely solely on their core base of supporters to win elections.  They must appeal to voters who prefer others candidates above them first, but might be willing to cast second or third place votes for them.  This removes the incentive present in plurality systems for going negative as they risk losing support from such voters. 
 
+Comparative research offers hope for the ability of preferential voting systems to introduce an element of civility into politics.  Conflict management case studies in Australia offers evidence that preferential voting moderates Australian politics~\cite{Reilly:2001,Reilly:2002}.  Indeed, research shows that Australian political elites bargain and coordinate policy efforts in a very sophisticated manner~\cite{Sharman:2002}; how much of this can be attributed to the electoral system context?
 
-\subsection*{Exploring the Model: A Maximization Problem}
+There is reasons to believe campaigns behave differently under preferential than plurality rules, even though research comparing preferential and plurality elections is relatively sparse.  In the American context, candidates running in cumulative voting electoral systems have been found to be more likely to work to mobilize voters~\cite{Bowler:2003}.  In addition, a cross-national public opinion study finds that respondents are happier with the way democracy works when they lived in areas where people vote using preferential voting rules~\cite{Farrell:2006}.  Not only does preferential voting influence the way campaigns behave, but voters see and appreciate the difference.
 
-The utility of candidate $\ell$ going negative against any other given candidate can thus be expressed in the form of equation~\ref{E:1} below.  
+The brief review of literature allows us to draw two broad conclusions.  First, there is a gap in research linking electoral rules to negative campaigning.  Second, there is plenty of evidence to suggest electoral rules might play an important 
 
-$$ U(\ell_N) = b\left( \frac{y+r\delta}{1+\rho}\right) - c \kappa + \epsilon $$
+\subsection*{Differences in Behavior: Evidence from Candidate Surveys}
 
-Once campaigns collect the appropriate information they then calculate whether or not they can expect to receive positive utility for using a negative tactic.  This presents a maximization problem for the campaign.  As they seek to maximize vote share, campaigns choose between going negative or not going negative simply by whether or not the utility function calculation is greater than zero.  If it is, the campaign can expect to receive positive utility from going negative, making this the best decision in the given the scenario.  If the utility function caluculation results in a negative value, campaigns realize they have more to lose than to gain by going negative and choose not to.
+Candidates in 2013 general election races for mayoral or city council seats were polled via mail and Internet survey instruments.  The survey was addressed and mailed directly to candidates at their homes and/or offices\footnote{The survey was offered in electronic form in hopes of improving sample size.  The survey was identical in both situations and there are no systematic differences between electronic and mail-in respondents.  $N=233$.}.  Table~\ref{t:negxtab} displays cross-tabulation of whether or not a campaign went negative against an opponent by electoral system type.  Most notable from this table is the column percentages.  24\% of campaigns in non-RCV systems reported going negative against an opponent whereas only 17\% of campaigns in RCV systems did, a roughly 7\% drop in campaigns choosing to go negative.  It should be noted that the variable here is dichotomous.  All campaigns that went negative are grouped into the 'Yes' category, regardless of how many times they went negative or how particularly damaging the ad was.  
 
-\subsection*{Generating Predictions}
+\begin{table}[!htbp]
+\centering
+\caption{Cross-Tab of Negativity by Electoral System Type}
+\label{t:negxtab}
+\begin{tabular}{c | c c | c}
+\small{\textit{Go negative?}} & ~ & ~ & ~ \\
+$\binom{r}{c}$ & \small{non-RCV} & \small{RCV} & \small{Total} \\
+\hline
+No & 104 & 56 & 160 \\
+~ & (65\%) & (35\%) & (100\%) \\
+~ & (76\%) & (82\%) & (78\%) \\
+Yes & 32 & 12 & 44 \\
+~ & (73\%) & (27\%) & (100\%) \\
+~ & (24\%) & (17\%) & (22\%) \\
+\hline
+\small{Total} & 136 & 68 & 204 \\
+~ & (67\%) & (33\%) & (100\%) \\
+~ & (100\%) & (100\%) & (100\%) \\
+\end{tabular}
+\end{table}
 
-The model generates a series of predictions as constructed, which I explore more in-depth in the following section.
+Given the differences illustrated by these preliminary observations, I used ordered logistic regression to dig a little deeper into the determinants of campaign negativity.  Table~\ref{t:olog} presents these results.  The dependent variable, campaign negativity, is based on a question asking candidates how they described their main rival in the most recent election.  Respondents were asked to choose between six responses\footnote{The categories respondents could choose from included: mostly positive, somewhat positive, neither positive/negative, somewhat negative, or mostly negative.}.  These categories were collapsed into three: mostly/somewhat positive, neither positive/negative, and somewhat/mostly negative.  The variable was arranged so that zero indicates positive campaigning and two indicates negative campaigning.  
 
+The model shows the variable of interest, \textit{RCV}, is statistically significant and signed in the expected direction.  Campaigns in RCV systems are statistically less likely to engage in negative campaigning.  The \textit{Recent Winner} variable is dichotomous, indicating whether the respondent was elected in the most recent election he/she ran in.  While this variable is not statistically significant, the theory suggests that campaigns in first place will be less likely to go negative.  This analysis does not directly speak to whether or not that may be true, but it does illustrate how RCV is still a significant factor even when controlling for winning an election.  
+
+\textit{Rival Negativity} is also dichotomous, indicating whether or not the respondent's main opponent ran a negative campaign against them.  Respondents were asked a question similar to the question asked for the dependent variable, except are asked about how they were described by their rival.  Once one campaign decides to go negative against another campaign, the campaign being attacked typically retaliates.  Retaliation is usually in the form of negative campaigning, resulting in back and forth negative campaigning.  Interestingly, RCV still has a statistically significant negative effect on the probability of going negative, even when controlling for whether or not a candidate felt their rival largely describe them in a negative light.  Model 2 in Table~\ref{t:olog} removes the \textit{Rival Negativity} variable to show the effect of RCV still holds.
+
+\textit{Vote Share} and \textit{Spending} are both continuous variables.  \textit{Vote Share} was found by checking official election results for each candidate's race while \textit{Spending} is the estimated total reported by the respondent on the survey.  The \textit{Spending} totals were logged.  These variables are problematic, however.  While the theory suggests that candidates in or near first place in multi-candidate elections should be less likely to go negative, the \textit{Vote Share} variable is not quite speaking to this.  Comparing multi-seat elections with dozens of candidates to a one-seat election with 6 candidates is problematic; first place candidates in each race are likely to have drastically different vote shares.  Similarly, each campaign is different and spending totals are influences by several exogenous factors not measured by this particular survey instrument.  However, controlling for both variables offers a little bit of confidence that RCV is in fact an important determinant in the decision to go negative.
+
+The purpose of Table~\ref{t:olog} is to illustrate there is indeed a difference in the decision to go negative by electoral context.  Even when controlling for a main rival going negative, overall vote share, and total campaign spending, respondents in RCV systems are statistically less likely to go negative against rival campaigns than respondents in non-RCV systems.  This lends credence to the notion that RCV reduces the incentive to go negative.
+
+\newpage
+\begin{table}[!htbp] 
+\centering 
+  \caption{Effect of Electoral System Type on Decision to go Negative} 
+  \label{t:olog} 
+\begin{tabular}{@{\extracolsep{5pt}}lcc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{2}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-3} 
+\\[-1.8ex] & \multicolumn{2}{c}{Negativity} \\ 
+\\[-1.8ex] & (1) & (2)\\ 
+\hline \\[-1.8ex] 
+ RCV & $-$0.579$^{*}$ & $-$0.615$^{**}$ \\ 
+  & (0.306) & (0.301) \\ 
+  & & \\ 
+ Recent Winner & $-$0.217 & 0.141 \\ 
+  & (0.314) & (0.305) \\ 
+  & & \\ 
+ Rival Negativity & 1.641$^{***}$ &  \\ 
+  & (0.330) &  \\ 
+  & & \\ 
+ Vote Share & $-$0.001 & 0.002 \\ 
+  & (0.003) & (0.003) \\ 
+  & & \\ 
+ Spending(log) & 0.125 & 0.164 \\ 
+  & (0.118) & (0.118) \\ 
+  & & \\ 
+\hline \\[-1.8ex] 
+Observations & 204 & 204 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\multicolumn{3}{l}{Unstandardized ordered logistic coefficients with} \\
+\multicolumn{3}{l}{standard errors below in parantheses.} \\
+\multicolumn{3}{l}{\textit{Source:} Candidate Survey} \\ 
+\normalsize 
+\end{tabular} 
+\end{table} 
+\newpage
+
+However, there are several problems with this preliminary analysis.  The dependent variable is based on a question which asks candidates to describe only the relationship between them and their main rival.  This is problematic for two reasons.  First, it does not capture the generalized decision-making process of interest to this paper.  The question narrowly focuses on one, and only one, decision to go negative rather than describing the dynamic process throughout the entire campaign.  Second, it does not take into account how frequently nor how aggressively negative campaigning occurred.  Not all negative ads are created equal, some usually carry more weight than others.  These elements are missing in the way these survey questions were designed.
+
+\section*{Exploring the Model: A Maximization Problem}
+
+The previous section presented some preliminary evidence in support of the theory that campaigns in an RCV electoral system will behave differently than campaigns in a non-RCV electoral system.  But why?  If we are concerned primarily with the decision to go negative, what factors are campaigns considering in RCV elections that they are not considering in non-RCV elections?  That is, what is about RCV elections themselves that could potentially drive these differences in behavior?  I offer a potential explanation drawing from rational choice theory that hopes to shed light on this puzzle.  As described above, the electoral context shifts from a zero-sum to a positive-sum game since voters are given the ability to express multiple preferences.  This can be expressed in the language of utility.
+
+In his seminal work Downs provided the academic community with a basic cost-benefit framework for understanding political decision-making~\cite{(Downs:1957)}.  While his work looked specifically at the decision to vote, Downs' model has been used repeatedly to describe other political phenomena as well.  Campaigns, by their very nature, are rational institutions.  They seek to maximize benefits while minimizing costs in everything they do.  They are interested in one thing and one thing only: getting more votes than the other campaigns vying for the same seat.  
+
+My argument is simple: campaigns in RCV election systems choose to go negative less because there is a strategic element present in such a context that is not present in non-RCV election systems.  Voters are given the ability to rank up to 3 candidates in order of preference.  Knowing this, campaigns will be much more hesitant to go negative against another campaign if they believe some of their opponents' supporters might also be swayed to rank them second or third.  Campaigns are afraid of going negative as this may cause supporters of the candidate they attacked to view them negatively and become less likely to rank them second or third.  This dynamic does not exist in non-RCV elections and the choice to go negative does not have to take into consideration the supporters of the campaign a potential attack ad focuses on.
+
+I model the decision to go negative as a maximization problem, which will be turned into a experimental game in future research.  The decision process has three stages and as many iterations as there are weeks in the campaign cycle, beginning when the first candidacy is announced.  Campaigns determine the utility of going negative in a dyadic manner, comparing information about each of the other opposing campaigns.  Each week each campaign collects three pieces of information regarding each dyadic pairing: (1) relative ranking in most recent polling numbers, denoted in the model below by $\delta$; (2) ideological distance in terms of DW-NOMINATE scores, represented by $y$ below; and (3) the number of negative tactics already used by the campaign in this election cycle, $\rho$ below.  These three variables are the primary strategic elements in the campaign decision-making process.  
+
+Of primary interest is the nature of the $\delta$ term.  Campaigns determine the value of $\delta$ by subtracting the poll rankings of each opponent in the dyads, which can be expressed as $x_i - x_j$, where $i$ is any given campaign and $j$ is any given opponent.  A candidate in first place considering whether or not to go negative against a candidate in sixth place would mean $\delta = 1 - 6 = -5$.  The sign direction accounts for the relative positioning between each campaign, that is which one is ahead of the other.  As described above, the theory suggests campaigns ahead in the polls are less likely to go negative against campaigns at the back of the pack; the leading campaign wants to attract as many second and third round votes as possible.  The magnitude accounts for how far away the two campaigns are from each other in the polling numbers, again a theoretically driven assumption: research shows that going negative has the largest impact when it involves a trailing candidate attacking a leading candidate, and has little to no effect when it involves a leading candidate attacking a trailing candidate~\cite{Geer:2008}.  It is important to connect theory to model here.  Even when campaigns do not have to consider second or third round votes, research shows that the effect of negative campaigning (in terms of vote share gained by doing so) is much stronger for underdogs attacking front-runners than for front-runners attacking trailing candidates.  Front-runners have much more ground to lose, whereas trailing candidates are more likely to act desperately and `sling mud' so to speak.  Essentially, the location $\delta$ holds in the numerator of the utility function  penalizes the better-performing candidates for going negative on candidates at the bottom of the race.  This is essentially doing all the work in the model, the variable most important in understanding why negativity is more prevalent in plurality versus RCV elections.  
+
+The utility of candidate $\ell$ going negative against any other given candidate can thus be expressed as:  
+
+$$ U(N_{\ell}) = b\left( \frac{y+r\delta}{1+\rho}\right) - c \kappa + \epsilon $$
+
+Where $b$ represents the expected benefit in vote share of going negative, $c$ represents the expected cost in vote share of going negative, $\kappa$ represents the cost in dollars for going negative divided by the amount of money available to the campaign, and $\epsilon$ represents exogenous considerations.  Once campaigns collect the appropriate information they then calculate whether or not they can expect to receive positive utility for using a negative tactic.  This presents a maximization problem for the campaign.  As they seek to maximize vote share, campaigns choose between going negative or not going negative simply by whether or not the utility function calculation is greater than zero.  If it is, the campaign can expect to receive positive utility from going negative, making this the best decision in the given scenario.  If the utility function calculation results in a negative value, campaigns realize they have more to lose than to gain by going negative and choose not to.
+
+The model generates a series of predictions as constructed, which can be used to see how closely the model fits to real life observations.  To generate predictions, I make the following assumptions.  First, campaigns will never choose to go negative if the cost in vote share is greater than 
+
+(describe context of the decision-theoretic approach)
+(model describes potential range of outcomes for each scenario)
+
+(do each of the following for when r and $\delta$ are included, and when they are not; difference of RCV and non-RCV)
+What does the model predict?  Under which conditions would campaigns receive the most or least amount of utils for going negative?  What does the effect of 1, 2, 3, 5 additional ads on the utility gained from the next negative ad (increasing $\rho$)?  What do small/large values of $\kappa$ do (effect of having more money, bigger denominator in this variable)?  What about ideological distance, y?  
+
+Which of these has the largest effect when moving from minimum to maximum?  Hoping that $\delta$ will have a larger effect than other variables once introduced into the model, and once the number of candidates in a race crosses a certain threshold.  
+
+The distribution of possible utiles is presented below in Figure~\ref{f:utiles}.  There are two notable differences between the two graphs.  First, the distributions for each appear to be different.  The model generates utility for going negative in RCV context in a normal distribution centered around zero.  The model generates utility for going negative in non-RCV context in a what appears to be closer to a Poisson distribution centered around zero.  The utility in non-RCV elections is therefore right-skewed.  This leads us to the second notable difference: the area under the curve is slightly less for RCV elections than non-RCV elections.  Comparing these distributions to what we see in the real world, the model appears to fit empirical observations fairly well.  To further illustrate this point Table~\ref{t:utiles} presents the information from Figure~\ref{f:utiles} in a different format.
+
+\newpage
+\begin{figure}[!htp]
+\begin{subfigure}{.8\textwidth}
+\centering
+\includegraphics[width=.8\linewidth]{deltaplot}
+  \caption{non-RCV Elections ($r=0$)}
+    \label{f:nonrcv}
+\end{subfigure}
+
+\begin{subfigure}{.8\textwidth}
+\centering
+\includegraphics[width=.8\linewidth]{lambdaplot}
+  \caption{RCV Elections ($r=1$)}
+    \label{f:rcv}
+\end{subfigure}
+
+\caption{Distribution of Utiles for RCV and non-RCV Elections}
+\label{f:utiles}
+\end{figure}
+\newpage
 
 \begin{table}
-\caption{Area of Utility Curve Greater Than Zero (\% Positive Utils)}
-\label{table1}
+\caption{Area of Utility Curve Greater Than Zero (\% Positive Utiles)}
+\label{t:utiles}
 
-\begin{tabular}{c | c c}
-Election Size & \underline{$r = 1$} & \underline{$r = 0$} \\
-(\# Candidates) & (RCV) & (non-RCV) \\
+\begin{tabular}{c | c c | c}
+Election Size & \underline{$r = 1$} & \underline{$r = 0$} & ~ \\
+(\# Candidates) & (RCV) & (non-RCV) & Diff. \\
 \hline
-2 & .52 & .51 \\
-3 & .47 & .51 \\
-4 & .46 & .51 \\
-5 & .46 & .51 \\
-6 & .45 & .60 \\
+2 & .52 & .51 & \textit{.01} \\
+3 & .47 & .51 & \textit{-.04}\\
+4 & .46 & .51 & \textit{-.05}\\
+5 & .46 & .51 & \textit{-.05}\\
+6 & .45 & .60 & \textit{-.15}\\
 \end{tabular}
-
 \end{table}
 
 
+\begin{table}
+\caption{Area of Utility Curve Greater Than Zero - Excluding $b$ and $c$ Terms (\% Positive Utiles)}
+\label{t:utiles2}
+
+\begin{tabular}{c | c c | c}
+Election Size & \underline{$r = 1$} & \underline{$r = 0$} & ~ \\
+(\# Candidates) & (RCV) & (non-RCV) & Diff. \\
+\hline
+2 & .61 & .61 & \textit{0}\\
+3 & .56 & .61 & \textit{-.05}\\
+4 & .54 & .61 & \textit{-.07}\\
+5 & .53 & .61 & \textit{-.08}\\
+6 & .53 & .72 & \textit{-.19}\\
+\end{tabular}
+\end{table}
+
+Table~\ref{t:utiles} shows the proportion of area under the curve that falls above an estimated utility for going negative of zero.  That is, given the constraints discussed earlier, the numbers presented represent the proportion of dyads that would find positive utility in going negative.  The far right column shows the simple difference between RCV and non-RCV estimated utility.  The effect of RCV, which is essentially the effect of the $\delta$ term in the utility function, is this difference.  $\delta$ does not begin to have an effect until there are more than two candidates in the race, and does not have a significant substantive effect until there are at least six candidates in the race.  This fits well to what voters perceive regarding campaign negativity in real time, discussed briefly below.  
+
+Table~\ref{t:utiles2} was constructed to see how well the model works when excluding campaign considerations of potential vote share changes.  These two tables provide additional information about the utility function.  The $b$ and $c$ terms seem important to keep as part of the utility function, as without them utility from going negative will be overestimated in most cases.  Keeping them as part of the calculus campaigns make when deciding to go negative tempers the decision, as it makes them consider potential vote share effects.  The two terms essentially represent what the campaign expects to either gain or lose in terms of vote support and are used to condition the strategic benefit and monetary cost terms, respectively.  Not including these terms in the model, as Table~\ref{t:utiles} and Table~\ref{t:utiles2} show, results in consistent overestimation of the utility received from going negative in \textit{both} RCV and non-RCV contexts\footnote{In both utility functions the number of candidates in a race has a non-monotonic effect.  That is, if the differences in expected utility between RCV and non-RCV systems were plotted by candidate size, races with more than 6 candidates do not have as large of an effect as 6 candidates does; the difference slowly decreases from this point.  This indicates something might be unique about races with 6 candidates given the way the utility function is constructed and needs to be explored further.}.
+
 \section*{Conclusion}
+This research project, moving forward, will focus on tightening theoretical explanation and improve on available data.  Better measurements of all variables are needed in the next wave of survey data, both candidate and voter focused versions.  Ideally, the next step would be experimental studies linking the theory of negative campaigning to a game setting where respondents are asked to actually run a campaign and make decisions.  Such a research design could give significant leverage currently unattainable with available data.
+
+(talk about experimental design for expanding this paper)
 
 This paper presented a formal model of the decision-making process campaigns face when choosing whether or not to go negative.  The simplicity of the model is one of its strengths and can offer a starting point for future research to build on.  Empirically testing this model requires data currently unavailable.  However, we can see that in survey-experiment data collected in RCV and non-RCV cities patterns emerge that the model would predict.  This indicates that future empirical testing could prove fruitful and open up the door to better understand campaign strategy and decision-making.  Hopefully too, this paper can offer insight valuable to campaign managers and candidates alike.
 
+Why is this research useful?  To whom is it useful for?  What can other scholars do with this information?
 
-\biblography{bibliography}
 
-
+\newpage
+\bibliographystyle{authordate1}
+\bibliography{bibliography}
 \end{document}
